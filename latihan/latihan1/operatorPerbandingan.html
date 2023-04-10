@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-color-mode="terang">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Operator Perbandingan</title>
+    <style>
+      :root {
+        --bg-color: #333;
+        --colorMode: #fff;
+        --boxShadow: 5px 5px 7px rgba(0, 0, 0, 3);
+        --boxShadowBtn: 5px 5px 7px rgba(0, 0, 0, 3);
+        --text-color: #fff;
+      }
+      html[data-color-mode="dark"] {
+        --colorMode: #333;
+        --boxShadow: 5px 8px 15px #fff;
+        --text-color: #fff;
+        /* Code tersebut menunjukkan sebuah CSS selector yang menargetkan tag HTML ketika nilai atribut "data-color-mode" memiliki value "light". */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--colorMode);
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+        margin: 10px auto;
+        padding: 5px;
+        width: 90%;
+        height: 600px;
+        background-color: orange;
+        box-shadow: var(--boxShadow);
+        position: relative;
+        z-index: 2;
+      }
+      h1 {
+        text-shadow: 0 5px 7px rgba(0, 0, 0, 3), 0 0 20px #333;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        margin: 5px;
+        font-size: 150%;
+        color: salmon;
+        text-transform: uppercase;
+      }
+      .gambar {
+        width: 80%;
+        height: 200px;
+        border: 2px solid cyan;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        box-shadow: 5px 5px 7px rgba(0, 0, 0, 3);
+      }
+      .gambar img {
+        max-width: 100%;
+        display: block;
+      }
+      button#colormode {
+        background-color: #333;
+        padding: 5px;
+        border-radius: 5px;
+        font-weight: bold;
+        box-shadow: var(--boxShadowBtn);
+        display: block;
+        margin: 10px auto;
+        color: var(--text-color);
+      }
+      @media screen and (max-width: 800px;) {
+        .container {
+          height: 800px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button id="colormode">Dark Mode</button>
+    <div class="container">
+      <h1>Operator Perbandingan</h1>
+      <div class="gambar">
+        <img
+          src="./img/Operators_In_JavaScript_10.png"
+          alt="OPERATOR PERBANDINGAN"
+        />
+      </div>
+    </div>
+
+    <script>
+      const button = document.querySelector("button");
+      const html = document.querySelector("html");
+
+      // ketika tombol di klik
+
+      button.addEventListener("click", function () {
+        // cek colormode saat ini
+        if (html.dataset.colorMode === "terang") {
+          html.dataset.colorMode = "dark";
+          this.textContent = "Light Mode";
+        } else {
+          html.dataset.colorMode = "terang";
+          this.textContent = "Dark Mode";
+        }
+      });
+
+      // running code
+      let x = 13;
+      // menyimpan angka 13 kedalam variabel x
+
+      let hasil = x % 22 == 0; //false
+      console.log("hasilnya : " + hasil + " hasil 1"); // menampilkan hasil
+      // hasilnya false karena angka 13 mod nya 22 itu masih ada sisa 13. ketika 13 dibagi 22 maka akan ada sisa 13. lalu dibandingkan apakah hasilnya itu 0
+
+      hasil = x % 22 == 13; // true
+      console.log("hasilnya : " + hasil + " hasil 2");
+
+      x = 12; // kita ubah isi variabel x
+      hasil = x % 3 == 0; // true
+      // karena gada sisanya jadi 0
+      console.log("hasilnya : " + hasil + " hasil 3");
+
+      // bagian 2
+      let hasil1 = x % 2 == 0; // apakah x bilangan genap
+      let hasil2 = hasil1 && x < 10;
+      // apakah (hasil1) bilangan genap, (dan) x lebih kecil dari 10
+      console.log("hasilnya : " + hasil2 + " hasil &&");
+
+      hasil2 = hasil1 || x < 10;
+      console.log("hasilnya : " + hasil2 + " hasil ||");
+      let unary = !(x > 10);
+      console.log("hasilnya : " + unary + " hasil !");
+      /* 
+LOGIKA
+&& = AND harus true semua
+|| = OR salah satu true
+! = NOT kebalikan
+*/
+    </script>
+  </body>
+</html>
